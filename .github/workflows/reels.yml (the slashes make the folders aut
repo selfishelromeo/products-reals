@@ -1,0 +1,24 @@
+name: Make reels
+
+on:
+  push:
+    paths:
+      - "products.json"
+      - "images/**"
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install pillow
+      - run: python make_reels.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reels
+          path: reels/*.mp4
