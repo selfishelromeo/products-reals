@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Leather Wallet",
+    "price": "$25",
+    "images": ["images/wallet1.jpg", "images/wallet2.jpg", "images/wallet3.jpg"],
+    "cta": "Order now - link in bio"
+  }
+]
